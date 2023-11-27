@@ -5,30 +5,20 @@ export const App = () => {
 
     return (
         <section className='App'>
+
             <TwitterFollowCard
                 formattedUserName={format}
-                isFollowing
-                userName={"srdaveo28"}
-                name={"David Ortiz"}
-            />
-            <TwitterFollowCard
-                formattedUserName={format}
-                isFollowing={false}
-                userName={"midudev"}
-                name={"Midu Dios"}
-            />
-            <TwitterFollowCard
-                formattedUserName={format}
-                isFollowing={false}
                 userName={"davidgenz"}
-                name={"David GenZ"}
-            />
+            >
+                David GenZ
+            </TwitterFollowCard>
+
             <TwitterFollowCard
                 formattedUserName={format}
-                isFollowing
                 userName={"klerith"}
-                name={"FernanDios Herrera"}
-            />
+            >
+                FernanDios Herrera
+            </TwitterFollowCard>
         </section>
     )
 }
