@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-export const TwitterFollowCard = ({ children, formattedUserName, userName = "unknown" }) => {
-    const [isFollowing, setIsFollowing] = useState(false);
+export const TwitterFollowCard = ({ children, userName, initialIsFollowing }) => {
+    const [isFollowing, setIsFollowing] = useState(initialIsFollowing);
     //condicionales en los botones para hacerlos dinamicos
     const text = isFollowing ? "Siguiendo" : "Seguir";
     const buttonClassName = isFollowing ? "tw-followCard-button is-following" : "tw-followCard-button";
@@ -18,13 +18,14 @@ export const TwitterFollowCard = ({ children, formattedUserName, userName = "unk
                 />
                 <div className='tw-followCard-info'>
                     <strong>{children}</strong>
-                    <span className='tw-followCard-infoUserName'>{formattedUserName(userName)}</span>
+                    <span className='tw-followCard-infoUserName'>@{userName}</span>
                 </div>
             </header>
 
             <aside>
                 <button className={buttonClassName} onClick={handleClick}>
-                    {text}
+                    <span className='tw-followCard-text'>{text}</span>
+                    <span className='tw-followCard-stopFollow'>Dejar de Seguir</span>
                 </button>
             </aside>
         </article>

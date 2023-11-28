@@ -1,24 +1,37 @@
 import './App.css';
 import { TwitterFollowCard } from './TwitterFollowCard';
-export const App = () => {
-    const format = (username) => `@${username}`;
 
+const users = [
+    {
+        userName: 'davidgenz',
+        name: 'David Ortiz',
+        isFollowing: true
+    },
+    {
+        userName: 'klerith',
+        name: 'FernanDios Herrera',
+        isFollowing: false
+    },
+    {
+        userName: 'midudev',
+        name: 'MiduDios',
+        isFollowing: true
+    },
+]
+export const App = () => {
     return (
         <section className='App'>
-
-            <TwitterFollowCard
-                formattedUserName={format}
-                userName={"davidgenz"}
-            >
-                David GenZ
-            </TwitterFollowCard>
-
-            <TwitterFollowCard
-                formattedUserName={format}
-                userName={"klerith"}
-            >
-                FernanDios Herrera
-            </TwitterFollowCard>
+            {
+                users.map(({ userName, name, isFollowing }) => (
+                    <TwitterFollowCard
+                        key={userName}
+                        userName={userName}
+                        initialIsFollowing={isFollowing}
+                    >
+                        {name}
+                    </TwitterFollowCard>
+                ))
+            }
         </section>
     )
 }
